@@ -7,13 +7,13 @@
 RF24 radio(10, 9);  // CE, CSN
 byte sAddresses[][6] = {"BasT","BasR"};
 
-//Radio Data
+//Radio Pair
 typedef struct{
-  bool pair = false;
-  int channel = 0;
+  int id = 1; // Each student will receive a id number
+  bool paired = false;
 }
-remote;
-remote remoteData;
+pair;
+pair pairData;
 
 //Controller Data
 typedef struct{
@@ -43,6 +43,8 @@ void setup() {
   Serial.println("Start Remote Basic");
 
   radio.begin();
+  radio.setChannel(pairData.id);
+
   radio.openWritingPipe(sAddresses[0]);
   radio.setAutoAck(1);
   radio.stopListening();

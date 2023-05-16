@@ -31,6 +31,7 @@ void setup() {
   Serial.println("Start");
 
   radio.begin();
+  radio.setChannel(pairData.id);
   radio.openReadingPipe(0, sAddresses[0]);
   radio.setAutoAck(1);
   radio.startListening();
