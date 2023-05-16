@@ -43,8 +43,7 @@ void loop() {
     {
       Serial.println("Received");
       radio.read(&ctrlData, sizeof(ctrlData));
-      // Serial.println(ctrlData.rightSpeed);
-      // Serial.println(ctrlData.leftSpeed);
+
       Serial.println(ctrlData.btn1);
       Serial.println(ctrlData.btn3);
     }
